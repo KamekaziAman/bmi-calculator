@@ -1,0 +1,33 @@
+@import url('https://fonts.googleapis.com/css2?family=Patrick+Hand&display=swap');
+
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+
+.rounded-full {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  border-radius: 9999px;
+  width: 1em;
+  height: 1em;
+  border: 2px solid #e5e7eb; /* You can adjust the border color as needed */
+  outline: none;
+  transition: 0.3s;
+}
+
+.rounded-full:checked {
+  background-color: #007a00cc; /* You can adjust the background color when checked */
+}

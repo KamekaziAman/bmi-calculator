@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>BMI calculator by kazi</title>
+    <link href="./style.css" rel="stylesheet" />
+    <link rel="icon" href="medica_health_healthcare_sign_icon_143444.png" type="image/x-icon">
+  </head>
+  <body
+    class="flex flex-wrap justify-center items-center absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 border-2 border-slate-700 p-3 bg-slate-700"
+  >
+    <div
+      class="bg-slate-50 shadow-md shadow-slate-100/40 rounded-3xl flex flex-col items-center h-80 w-80 mr-2"
+    >
+      <div class="text-3xl font-nff mt-4">Bmi calculator</div>
+      <div
+        class="font-nff text-sm bg-slate-300 p-5 m-3 mt-2 rounded-lg h-48 shadow-md"
+      >
+        <div class="text-lg p-1">
+          age
+          <input
+            class="ml-4 w-20 border-2 border-white appearance-none focus:outline-none"
+            type="number"
+            name="age"
+            placeholder="  16"
+            id="age"
+          />
+          ages: 2 -120
+        </div>
+        <div class="text-lg p-1">
+          gender
+          <input class="rounded-full ml-2" type="checkbox" name="male" /> Male
+          <input class="rounded-full ml-1" type="checkbox" name="female" />
+          female
+        </div>
+        <div class="text-lg p-1">
+          height
+          <input
+            class="appearance-none focus:outline-none"
+            type="number"
+            name="age"
+            placeholder="  180                            cm"
+            id="height"
+          />
+        </div>
+        <div class="text-lg p-1">
+          weight
+          <input
+            class="appearance-none focus:outline-none"
+            type="number"
+            name="age"
+            placeholder="  70                              kg"
+            id="weight"
+          />
+        </div>
+      </div>
+      <div class="mt-2 font-semibold text-slate-900">
+        <button
+          onclick="getheight()"
+          class="bg-green-600 w-20 h-8 rounded-md hover:bg-green-700 drop-shadow-lg mr-2"
+        >
+          Calculate
+        </button>
+        <button
+          id="clearButton"
+          class="bg-green-600 w-16 h-8 rounded-md hover:bg-green-700 drop-shadow-lg ml-2"
+        >
+          Clear
+        </button>
+      </div>
+    </div>
+
+    <div
+      class="self-start min-w-40 m-2 bg-slate-50 shadow-md shadow-slate-100/40 rounded-3xl flex flex-col items-center h-32 w-80 ml-2"
+    >
+      <div class="font-nff font-semibold text-3xl m-4" id="bmitext">
+        BMI = 23.5
+      </div>
+      <div class="font-semibold" id="wur">You are</div>
+    </div>
+
+    <script>
+      let heightInput = document.getElementById("height");
+      let weightInput = document.getElementById("weight");
+      let ageInput = document.getElementById("age");
+      let clearButton = document.getElementById("clearButton");
+
+      clearButton.addEventListener("click", function () {
+        heightInput.value = "";
+        weightInput.value = "";
+        ageInput.value = "";
+      });
+
+      function getheight() {
+        let heightValue = heightInput.value;
+        let weightValue = weightInput.value;
+        let cmtom = heightValue / 100;
+        let bmifor = (weightValue / cmtom ** 2).toString();
+        let valuegiv = (document.getElementById("bmitext").innerHTML =
+          "BMI = " + bmifor.slice(0, 4));
+        if (bmifor <= 18.5) {
+          document.getElementById("wur").innerHTML = "You are Underweight";
+        } else if (bmifor <= 24.5) {
+          document.getElementById("wur").innerHTML = "You are Normal";
+        } else {
+          document.getElementById("wur").innerHTML = "You are Overweight";
+        }
+      }
+    </script>
+  </body>
+</html>
